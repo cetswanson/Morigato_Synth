@@ -11,9 +11,13 @@
 
   {{> hello}}
 
-  {{> setFrequency}}
-  <br>
-  {{> setTable}}
+  {{> setFrequency}}<br>
+  {{> setTable}}<br>
+  {{> setAttack}}<br>
+  {{> setDelay}}<br>
+  {{> setSustain}}<br>
+  {{> setRelease}}<br>
+
 
 </body>
 
@@ -23,11 +27,33 @@
 </template>
 
 <template name="setFrequency">
-  <p>Default Frequency: 100</p>
+  Default Frequency: 100<br>
   Frequency: <input class="frequency" type="text" name="frequency">
 </template>
 
 <template name="setTable">
-  <p>Default Table: 8000</p>
+  Default Table: 8000<br>
   Table Frequency: <input class="table-frequency" type="text" name="table">
 </template>
+
+<template name="setAttack">
+  Default Attack: 150<br>
+  Table Attack: <input class="attack" type="text" name="attack">
+</template>
+
+<template name="setDelay">
+  Default Delay: 500<br>
+  Table Delay: <input class="delay" type="text" name="delay">
+</template>
+
+<template name="setSustain">
+  Default Sustain: 0.45<br>
+  Table Sustain: <input class="sustain" type="text" name="sustain">
+</template>
+
+<template name="setRelease">
+  Default Release: 1500<br>
+  Table Release: <input class="release" type="text" name="release">
+</template>
+
+<!-- {a:150, d:500, s:0.45, r:1500, lv:0.6} -->
