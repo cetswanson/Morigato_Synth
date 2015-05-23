@@ -8,4 +8,25 @@
 <body>
   <h1>Welcome to Morigato_Synth!</h1>
   <div id="message-board"></div>
+
+  {{> hello}}
+
+  {{> setFrequency}}
+  <br>
+
+  {{> getFrequency}}
+
 </body>
+
+<template name="hello">
+  <button>Click Me</button>
+  <p>You've pressed the button {{counter}} times.</p>
+</template>
+
+<template name="setFrequency">
+  <input type="text" name="frequency">
+</template>
+
+<template name="getFrequency">
+  Frequency field: {{frequency}}
+</template>
