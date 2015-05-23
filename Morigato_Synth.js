@@ -31,17 +31,17 @@ if (Meteor.isClient) {
   });
 
   Session.setDefault('frequency', 100);
-
-  Template.getFrequency.helpers({
-    frequency: function () {
-      return Session.get('frequency');
-    }
-  });
+  Session.setDefault('table', 8000);
 
   Template.setFrequency.events({
     'keyup': function() {
-      console.log($('input')[0].value);
-      Session.set('frequency', $('input')[0].value);
+      Session.set('frequency', $('.frequency')[0].value);
+    }
+  })
+
+  Template.setTable.events({
+    'keyup': function() {
+      Session.set('table', $('.table-frequency')[0].value);
     }
   })
 
@@ -52,7 +52,7 @@ if (Meteor.isClient) {
 
       var VCO = T("saw", {freq: parseInt(Session.get('frequency'))});
 
-      var cutoff = T("env", {table:[8000, [parseInt(Session.get('frequency')), 500]]}).bang();
+      var cutoff = T("env", {table:[parseInt(Session.get('table')), [parseInt(Session.get('frequency')), 500]]}).bang();
       var VCF    = T("lpf", {cutoff:cutoff, Q:5}, VCO);
 
       var EG  = T("adsr", {a:150, d:500, s:0.45, r:1500, lv:0.6});

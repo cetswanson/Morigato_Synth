@@ -13,8 +13,7 @@
 
   {{> setFrequency}}
   <br>
-
-  {{> getFrequency}}
+  {{> setTable}}
 
 </body>
 
@@ -24,9 +23,11 @@
 </template>
 
 <template name="setFrequency">
-  <input type="text" name="frequency">
+  <p>Default Frequency: 100</p>
+  Frequency: <input class="frequency" type="text" name="frequency">
 </template>
 
-<template name="getFrequency">
-  Frequency field: {{frequency}}
+<template name="setTable">
+  <p>Default Table: 8000</p>
+  Table Frequency: <input class="table-frequency" type="text" name="table">
 </template>
