@@ -2,8 +2,18 @@
 stream = new Meteor.Stream('c2c');
 var RADIX = 10;
 
-if (Meteor.isClient) {
+function playSound(keyCode) {
+  var synth = T("OscGen", {wave:"saw", mul:0.25}).play();
+  var keydict = T("ndict.key");
+  var midicps = T("midicps");
+  var midi = keydict.at(keyCode);
+  if (midi) {
+    var freq = midicps.at(midi);
+    synth.noteOnWithFreq(freq, 100);
+  }
+}
 
+if (Meteor.isClient) {
   sendChat = function(message) {
     stream.emit('message', message);
     $('#message-board').prepend('<li>me: ' + message + '</li>');
