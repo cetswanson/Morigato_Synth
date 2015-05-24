@@ -21,19 +21,12 @@ if (Meteor.isClient) {
 
   stream.on('message', function(message) {
     $('#message-board').prepend('<li>user: ' + message + '</li>');
-    var synth = T("OscGen", {wave:"saw", mul:0.25}).play();
-
-    var keydict = T("ndict.key");
-    var midicps = T("midicps");
-    var midi = keydict.at(parseInt(message, RADIX));
-    if (midi) {
-      var freq = midicps.at(midi);
-      synth.noteOnWithFreq(freq, 100);
-    }
+    playSound(parseInt(message, RADIX));
   });
 
   $(document).on('keydown', function (e) {
     sendChat(e.keyCode);
+    playSound(e.keyCode);
   });
 }
 
