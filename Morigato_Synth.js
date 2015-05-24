@@ -7,6 +7,7 @@ function playSound(keyCode) {
   var keydict = T("ndict.key");
   var midicps = T("midicps");
   var midi = keydict.at(keyCode);
+
   if (midi) {
     var freq = midicps.at(midi);
     synth.noteOnWithFreq(freq, 100);
@@ -31,7 +32,6 @@ if (Meteor.isClient) {
 }
 
 if (Meteor.isServer) {
-
   stream.permissions.write(function(eventName) {
     return true;
   });
