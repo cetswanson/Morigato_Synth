@@ -22,20 +22,9 @@ if (Meteor.isClient) {
     }
   });
 
-  setTimeout(function() {
-    var synth = T("OscGen", {wave:"saw", mul:0.25}).play();
-
-    var keydict = T("ndict.key");
-    var midicps = T("midicps");
-    T("keyboard").on("keydown", function(e) {
-
-      sendChat(e.keyCode);
-
-    }).on("keyup", function(e) {
-
-    }).start();
-  }, 10);
-
+  $(document).on('keydown', function (e) {
+    sendChat(e.keyCode);
+  });
 }
 
 if (Meteor.isServer) {
@@ -47,7 +36,6 @@ if (Meteor.isServer) {
   stream.permissions.read(function(eventName) {
     return true;
   });
-
 
   Meteor.startup(function () {
     // code to run on server at startup
