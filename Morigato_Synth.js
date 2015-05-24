@@ -14,7 +14,7 @@ function playSound(keyCode) {
 }
 
 if (Meteor.isClient) {
-  sendChat = function(message) {
+  sendNote = function(message) {
     stream.emit('message', message);
     $('#message-board').prepend('<li>me: ' + message + '</li>');
   };
@@ -25,7 +25,7 @@ if (Meteor.isClient) {
   });
 
   $(document).on('keydown', function (e) {
-    sendChat(e.keyCode);
+    sendNote(e.keyCode);
     playSound(e.keyCode);
   });
 }
