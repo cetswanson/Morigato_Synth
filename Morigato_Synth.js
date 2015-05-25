@@ -104,7 +104,6 @@ if (Meteor.isClient) {
       }
     }).start();
   }, 500)
-
 }
 
 if (Meteor.isServer) {
