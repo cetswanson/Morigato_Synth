@@ -2,17 +2,17 @@
 stream = new Meteor.Stream('c2c');
 var RADIX = 10;
 
-function playSound(keyCode) {
-  var synth = T("OscGen", {wave:"saw", mul:0.25}).play();
-  var keydict = T("ndict.key");
-  var midicps = T("midicps");
-  var midi = keydict.at(keyCode);
+// function playSound(keyCode) {
+//   var synth = T("OscGen", {wave:"saw", mul:0.25}).play();
+//   var keydict = T("ndict.key");
+//   var midicps = T("midicps");
+//   var midi = keydict.at(keyCode);
 
-  if (midi) {
-    var freq = midicps.at(midi);
-    synth.noteOnWithFreq(freq, 100);
-  }
-}
+//   if (midi) {
+//     var freq = midicps.at(midi);
+//     synth.noteOnWithFreq(freq, 100);
+//   }
+// }
 
 if (Meteor.isClient) {
   sendNote = function(message) {

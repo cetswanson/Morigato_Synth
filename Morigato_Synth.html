@@ -9,8 +9,6 @@
   <h1>Welcome to Morigato_Synth!</h1>
   <div id="message-board"></div>
 
-  {{> hello}}
-
   {{> setFrequency}}<br>
   {{> setTable}}<br>
   {{> setAttack}}<br>
@@ -18,13 +16,7 @@
   {{> setSustain}}<br>
   {{> setRelease}}<br>
 
-
 </body>
-
-<template name="hello">
-  <button>Click Me</button>
-  <p>You've pressed the button {{counter}} times.</p>
-</template>
 
 <template name="setFrequency">
   Default Frequency: 100<br>
@@ -55,5 +47,3 @@
   Default Release: 1500<br>
   Table Release: <input class="release" type="text" name="release">
 </template>
-
-<!-- {a:150, d:500, s:0.45, r:1500, lv:0.6} -->
